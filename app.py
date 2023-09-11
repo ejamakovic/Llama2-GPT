@@ -18,7 +18,7 @@ def pitanje():
     pitanje = request.form.get("pitanje")
 
     # Za što duži odgovor staviti max_tokens=0
-    odgovor = llm("Q: " + pitanje  + " A: ", max_tokens=100, stop=["Question:", "Q", "\n"], echo=True)
+    odgovor = llm("Q: " + pitanje  + " A: ", max_tokens=100, stop=["Question:", "Q"], echo=True)
     odgovor = re.split("A:", odgovor["choices"][0]["text"])[1]
     return odgovor
 

@@ -1,8 +1,35 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
+    font-family: Helvetica, Arial, sans-serif;
 }
+
+#metaslika {
+    position: fixed;
+    margin-top: 2%;
+    margin-left: 2%;
+}
+
+.loader {
+    margin-left: 40%;
+    width: 48px;
+    height: 48px;
+    border: 5px solid #FFF;
+    border-bottom-color: #1c1e21;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+    }
+
+    @keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+    } 
 
 .layout {
     display: flex;
@@ -11,23 +38,19 @@ body {
 
 /* Stil za sadržaj s desne strane */
 .content {
-    color: white;
+    color: #1c1e21;
     text-align: center;
     flex-grow: 1;
     padding: 20px;
-    background-color: #1615d9;
-    opacity: 0.8;
-    background-image:  linear-gradient(30deg, #000000 12%, transparent 12.5%, transparent 87%, #000000 87.5%, #000000), linear-gradient(150deg, #000000 12%, transparent 12.5%, transparent 87%, #000000 87.5%, #000000), linear-gradient(30deg, #000000 12%, transparent 12.5%, transparent 87%, #000000 87.5%, #000000), linear-gradient(150deg, #000000 12%, transparent 12.5%, transparent 87%, #000000 87.5%, #000000), linear-gradient(60deg, #00000077 25%, transparent 25.5%, transparent 75%, #00000077 75%, #00000077), linear-gradient(60deg, #00000077 25%, transparent 25.5%, transparent 75%, #00000077 75%, #00000077);
-    background-size: 20px 35px;
-    background-position: 0 0, 0 0, 10px 18px, 10px 18px, 0 0, 10px 18px;
+    background-color: #fff;
 }
 
 .content h1 {
-    font-size: 24px;
+    font-size: 35px;
 }
 
 .content p {
-    font-size: 16px;
+    font-size: 20px;
 }
 
 .footer-search {
@@ -35,16 +58,12 @@ body {
     bottom: 0;
     position: fixed;
     width: 100%;
-    background-color:  #fff111;
+    background-color:  #0080FB;
     padding: 2%;
     display: flex;
     justify-content: center;
     align-items: center;
-    max-height: fit-content;
-    opacity: 0.8;
-    background-image:  linear-gradient(30deg, #000000 12%, transparent 12.5%, transparent 87%, #000000 87.5%, #000000), linear-gradient(150deg, #000000 12%, transparent 12.5%, transparent 87%, #000000 87.5%, #000000), linear-gradient(30deg, #000000 12%, transparent 12.5%, transparent 87%, #000000 87.5%, #000000), linear-gradient(150deg, #000000 12%, transparent 12.5%, transparent 87%, #000000 87.5%, #000000), linear-gradient(60deg, #00000077 25%, transparent 25.5%, transparent 75%, #00000077 75%, #00000077), linear-gradient(60deg, #00000077 25%, transparent 25.5%, transparent 75%, #00000077 75%, #00000077);
-    background-size: 20px 35px;
-    background-position: 0 0, 0 0, 10px 18px, 10px 18px, 0 0, 10px 18px;
+    height: 5%;
 }
 
 
@@ -57,43 +76,60 @@ body {
     height: auto;
     min-height: 40px;
     width: 30%;
+    font-size: 24px;
 }
 
 #search-button {
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
-    background-color: #1615d9;
+    background-color: #0026fb;
     color: white;
     cursor: pointer;
     min-height: 50px;
 }
 
-#search-button:hover {
-    background-color: #1a1a1a;
+i {
+    height: 100%;
+    width: 100%;
 }
 
+#trash-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: firebrick;
+    color: white;
+    cursor: pointer;
+    margin-left: 1%;
+    min-height: 50px;
+}
+
+#search-button:hover {
+    background-color: #173aff;
+}
+
+
 #chat {
-    width: 40%;
-    margin: 5% auto;
-    margin-bottom: 10%;
+    width: 50%;
+    margin: auto;
+    margin-bottom: 7%;
+    margin-top: 3%;
 }
 
 /* Stil za poruke korisnika */
 .user1, .user2 {
+    color: #fff;
     padding: 5%;
     display: flex;
-    background-color: #fff111;
+    background-color: #838383;
     border-radius: 10px;
     margin-bottom: 10px;
 }
 
 .user2 {
-    background-color: #007BFF;
-}
-
-#poruka {
-    margin: 10%;
+    color: #1c1e21;
+    background-color: #f1f4f7;
 }
 
 .user1 img, .user2 img {
@@ -107,8 +143,6 @@ body {
     margin-top: 0;
     padding: 10px;
     border-radius: 5px;
-    background-color: #1a1a1a;
-    color: white;
     width: 100%;
     word-wrap: break-word;
     text-align: left;
@@ -133,12 +167,15 @@ body {
 
 select {
     width: 200px;
-    background-color: #f2f2f2;
+    background-color: #f1f4f7;
     color: #1a1a1a;
     padding: 8px;
-    border: 1px solid #ccc;
     cursor: pointer;
     margin-left: 5%;
+}
+
+option {
+    height: 2%;
 }
   
 select:hover {

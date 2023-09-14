@@ -4,14 +4,16 @@ import re
 
 chat = "" 
 
-print("Loading model...")
-llm = Llama(model_path="./models/llama-2-7b-chat.bin", verbose=True)
-print("Model loaded.")
+llm = Llama(model_path="./models/llama-2-7b-chat.bin", verbose=True, n_ctx=4096)
 
 app = Flask(__name__)
 
 @app.route("/")
 def index():
+    global llm
+    print("Loading model...")
+    llm = Llama(model_path="./models/llama-2-7b-chat.bin", verbose=True, n_ctx=4096)
+    print("Model loaded.")
     return render_template("index.html")
 
 @app.route("/pitanje", methods=["POST"])
@@ -19,7 +21,7 @@ def pitanje():
     global chat
     pitanje = request.form.get("pitanje")
     # Za što duži odgovor staviti max_tokens=0
-    odgovor = llm(chat + "Q: " + pitanje + " A: ", max_tokens=100, stop=["Q"], echo=True)
+    odgovor = llm(chat + "Q: " + pitanje + " A: ", max_tokens=0, stop=["Q"], echo=True)
     odgovor = re.split("A:", odgovor["choices"][0]["text"])[1]
     chat = chat + "Question: " + pitanje + "Answer: " + odgovor
     return odgovor
@@ -30,9 +32,9 @@ def model():
     model = request.form.get("model")
     print("Loading model...")
     if model=="7B":
-        llm = Llama(model_path="./models/llama-2-7b-chat.bin", verbose=True)
+        llm = Llama(model_path="./models/llama-2-7b-chat.bin", verbose=True, n_ctx=4096)
     else:
-        llm = Llama(model_path="./models/llama-2-13b-chat.bin", verbose=True)
+        llm = Llama(model_path="./models/llama-2-13b-chat.bin", verbose=True, n_ctx=4096)
     print("Model changed.")
     return "Model uspješno promjenjen"
 

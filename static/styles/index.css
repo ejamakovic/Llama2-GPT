@@ -49,7 +49,8 @@ body {
     font-size: 35px;
 }
 
-.content p {
+.content pre {
+    white-space: pre-wrap;
     font-size: 20px;
 }
 
@@ -89,10 +90,6 @@ body {
     min-height: 50px;
 }
 
-i {
-    height: 100%;
-    width: 100%;
-}
 
 #trash-button {
     padding: 10px 20px;

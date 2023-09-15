@@ -42,7 +42,6 @@ function izbrisiRazgovor(){
 window.onload = function() {
     var filter = document.getElementById("filter")
     filter.addEventListener("change", function(){
-        opcija = filter.value;
         $.ajax({
             url: '/model',
             type: 'POST',

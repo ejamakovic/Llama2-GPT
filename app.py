@@ -4,7 +4,7 @@ import re
 
 chat = "" 
 
-llm = Llama(model_path="./models/llama-2-7b-chat.bin", verbose=True, n_ctx=4096)
+llm = Llama(model_path="./models/llama-2-7b-chat.bin", verbose=True, n_ctx=2048)
 
 app = Flask(__name__)
 
@@ -12,7 +12,7 @@ app = Flask(__name__)
 def index():
     global llm
     print("Loading model...")
-    llm = Llama(model_path="./models/llama-2-7b-chat.bin", verbose=True, n_ctx=4096)
+    llm = Llama(model_path="./models/llama-2-7b-chat.bin", verbose=True, n_ctx=2048)
     print("Model loaded.")
     return render_template("index.html")
 
@@ -32,9 +32,9 @@ def model():
     model = request.form.get("model")
     print("Loading model...")
     if model=="7B":
-        llm = Llama(model_path="./models/llama-2-7b-chat.bin", verbose=True, n_ctx=4096)
+        llm = Llama(model_path="./models/llama-2-7b-chat.bin", verbose=True, n_ctx=2048)
     else:
-        llm = Llama(model_path="./models/llama-2-13b-chat.bin", verbose=True, n_ctx=4096)
+        llm = Llama(model_path="./models/llama-2-13b-chat.bin", verbose=True, n_ctx=2048)
     print("Model changed.")
     return "Model uspješno promjenjen"
 
